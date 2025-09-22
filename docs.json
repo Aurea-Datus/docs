@@ -1,0 +1,118 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "willow",
+  "name": "Datus Agent",
+  "colors": {
+    "primary": "#16A34A",
+    "light": "#07C983",
+    "dark": "#15803D"
+  },
+  "favicon": "/dutusicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "index",
+              "installation",
+              "quickstart"
+            ]
+          },
+          {
+            "group": "Cli",
+            "pages": [
+              "command/chat",
+              "command/context",
+              "command/execution",
+              "command/planmode",
+              "command/mcpserver",
+              "command/sessionmanagement",
+              "command/subagent"
+            ]
+          },
+          {
+            "group": "Knowledge Base",
+            "pages": [
+              "bootstrap-kb/metadata",
+              "bootstrap-kb/metric",
+              "bootstrap-kb/SQL History"
+            ]
+          },
+          {
+            "group": "workflow",
+            "pages": [
+              "workflow/introduction",
+              "workflow/node",
+              "workflow/orchestration",
+              "workflow/api"
+
+            ]
+          },
+          {
+            "group": "Configuration",
+            "pages": [
+              "configure/agent",
+              "configure/nodes",
+              "configure/namespace",
+              "configure/storage",
+              "configure/workflow",
+              "configure/benchmark"
+            ]
+          },
+          {
+            "group": "Benchmark",
+            "pages": [
+              "benchmark/Bird",
+              "benchmark/Spider"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Website",
+          "href": "https://datus.ai/",
+          "icon": "globe-pointer"
+        },
+        {
+          "anchor": "Community",
+          "href": "https://mintlify.com/community",
+          "icon": "slack"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://mintlify.com/blog",
+          "icon": "newspaper"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/datus-light.svg",
+    "dark": "/logo/datus-dark.svg"
+  },
+  "contextual": {
+    "options": [
+     "copy",
+     "view",
+     "chatgpt",
+     "claude",
+     "perplexity",
+     "mcp",
+     "cursor",
+     "vscode"
+   ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/mintlify",
+      "github": "https://github.com/mintlify",
+      "linkedin": "https://linkedin.com/company/mintlify"
+    }
+  }
+}

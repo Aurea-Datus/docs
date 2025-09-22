@@ -1,0 +1,132 @@
+---
+title: "Installation"
+description: "Set up the Datus Agent on your system in just a few minutes."
+---
+
+## Installation in Three Steps
+
+Follow these steps to install the Datus Agent locally and set up your environment.
+
+### Step 1: Prepare Your Environment
+
+<AccordionGroup>
+    <Accordion icon="Python" title="Install Python 3.12" defaultOpen="true">
+        Datus requires a Python 3.12 environment. Choose your preferred method below:
+        <Tabs>
+            <Tab title="Conda">
+                ```bash
+                conda create -n datus python=3.12
+                conda activate datus
+                ```
+            </Tab>
+            <Tab title="virtualenv" icon="env">
+                ```bash
+                virtualenv datus --python=python3.12
+                source datus/bin/activate
+                ```
+            </Tab>
+            <Tab title="uv" icon="env">
+                ```bash
+                uv venv datus --python 3.12
+                source datus/bin/activate
+                ```
+            </Tab>
+        </Tabs>
+    </Accordion>
+    <Accordion icon="rectangle-terminal" title="Install the Datus Agent" defaultOpen="true">
+        <Tabs>
+            <Tab title="Stable Release">
+                ```bash
+                pip install datus-agent
+                ```
+            </Tab>
+            <Tab title="Beta Release">
+                ```bash
+                pip install --no-deps -i https://test.pypi.org/simple/ datus-agent==0.1.13
+                ```
+            </Tab>
+        </Tabs>
+    </Accordion>
+</AccordionGroup>
+
+### Step 2: Initialize the Configuration
+
+<AccordionGroup>
+    <Accordion icon="screwdriver" title="First-Time Setup" defaultOpen="true">
+        ```bash
+        datus-agent init
+        ```
+    </Accordion>
+    <Accordion icon="palette" title="Customize Your Environment" defaultOpen="true">
+        <Steps>
+            <Step title="LLM">
+                Configure your preferred LLM provider.
+                ```bash
+                - Which LLM provider? [openai/deepseek/claude/kimi/qwen] (deepseek): kimi
+                - Enter your API key:
+                - Enter your base URL (https://api.deepseek.com):
+                - Enter your model name (deepseek-chat):
+                → Testing LLM connectivity...
+                ✔ LLM model test successful
+                ```
+            </Step>
+            <Step title="Namespace">
+                Set up the database connection.
+                For example, `duckdb-demo.duckdb` is a demo database provided with the project.
+                ```bash
+                - Namespace name: duckdb-demo
+                - Database type [sqlite/duckdb/snowflake/mysql/postgresql/starrocks] (starrocks):duckdb
+                - Connection string: ~/.datus/sample/duckdb-demo.duckdb
+                → Testing database connectivity...
+                ✔ Database connection test successful
+                ```
+            </Step>
+            <Step title="Workspace">
+                Configure the workspace root directory (where your SQL files are stored).
+                ```bash
+                - Workspace path (～/.datus/workspace):
+                ✔ Workspace directory created
+                ```
+            </Step>
+            <Step title="Knowledge (Optional)">
+                Initialize the knowledge base for metadata and SQL history.
+                ```bash
+                - Initialize vector DB for metadata? [y/n] (n): y
+                → Initializing metadata knowledge base...
+                → Processed 17 tables with 17 sample records
+                ✔ Metadata knowledge base initialized
+                - Initialize SQL history from workspace? [y/n] (n):
+                ```
+            </Step>
+            <Step title="Configuration Summary">
+                **Configuration Summary**
+                | Setting   | Value                        |
+                |-----------|------------------------------|
+                | LLM       | kimi (kimi-k2-turbo-preview) |
+                | Namespace | duckdb-demo                       |
+                | Workspace | /Users/username/.datus/workspace |
+
+                You’re ready to run `datus-cli --namespace duckdb-demo`
+            </Step>
+        </Steps>
+    </Accordion>
+</AccordionGroup>
+
+### Step 3: Launch the Datus Agent
+
+<Accordion icon="rocket" title="Run Datus CLI" defaultOpen="true">
+    ```bash Terminal
+    datus-cli --namespace duckdb-demo
+    Datus - AI-powered SQL command-line interface
+    Type '.help' for a list of commands or '.exit' to quit.
+
+    Namespace duckdb-demo selected
+    Connected to duckdb using database duckdb
+    Context: Current: database: duckdb
+    Type SQL statements or use ! @ . commands to interact.
+    Datus>
+    ```
+</Accordion>
+
+## Next Steps
+Follow the Quickstart guide to begin your experience with Datus Agent.
